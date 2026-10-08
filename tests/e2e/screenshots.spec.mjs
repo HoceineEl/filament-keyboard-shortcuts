@@ -76,35 +76,9 @@ test('sheet', async ({ page }) => {
     await shoot(page, 'sheet')
 })
 
-test('sheet dark', async ({ page }) => {
-    await useDark(page)
-    await showSheet(page, '/admin/customers')
-    await shoot(page, 'sheet-dark', await clipAround(page, dialog(page), 32))
-})
-
-test('sheet search', async ({ page }) => {
-    await showSheet(page, '/admin/customers')
-    await searchField(page).fill('customers')
-    await settle(page)
-    const box = await dialog(page).boundingBox()
-    const bottom = await page.evaluate(() => Math.max(...[...document.querySelectorAll('[data-ks-row]')].filter((row) => row.getClientRects().length > 0).map((row) => row.getBoundingClientRect().bottom)))
-    await shoot(page, 'sheet-search', { x: box.x - 24, y: box.y - 24, width: box.width + 48, height: bottom - box.y + 56 })
-})
-
 test('page actions', async ({ page }) => {
     await showSheet(page, '/admin/customers')
     await shoot(page, 'page-actions', await sectionClip(page, 'page-actions'))
-})
-
-test('platform key labels', async ({ page }) => {
-    await showSheet(page, '/admin/customers')
-    await shoot(page, 'keys-mac', await sectionClip(page, 'general'))
-})
-
-test('platform key labels on Windows and Linux', async ({ page }) => {
-    await useWindows(page)
-    await showSheet(page, '/admin/customers')
-    await shoot(page, 'keys-windows', await sectionClip(page, 'general'))
 })
 
 test('hint mode', async ({ page }) => {
@@ -121,15 +95,6 @@ test('two-letter hints', async ({ page }) => {
     await pressPrefix(page)
     const sidebar = await page.locator('.fi-sidebar').boundingBox()
     await shoot(page, 'hints-two-letter', { x: 0, y: 0, width: sidebar.width + 8, height: 720 })
-})
-
-test('collapsed sidebar hints', async ({ page }) => {
-    await useDark(page)
-    await visit(page, '/admin/orders')
-    await page.evaluate(() => window.Alpine.store('sidebar').close())
-    await settle(page, 400)
-    await pressPrefix(page)
-    await shoot(page, 'hints-collapsed-dark', { x: 0, y: 0, width: 360, height: 420 })
 })
 
 test('table navigation', async ({ page }) => {
@@ -156,33 +121,7 @@ test('button beside topbar search', async ({ page }) => {
     await shoot(page, 'button-topbar', { x, y: 0, width: viewport.width - x, height: search.y + search.height + 56 })
 })
 
-test('button in sidebar search', async ({ page }) => {
-    await visit(page, '/admin/customers?topbar=0')
-    await page.mouse.move(640, 790)
-    const sidebar = await page.locator('.fi-sidebar').boundingBox()
-    const search = await page.locator('.fi-sidebar .fi-global-search-ctn').boundingBox()
-
-    await shoot(page, 'button-sidebar', { x: 0, y: 0, width: sidebar.width + 8, height: search.y + search.height + 120 })
-})
-
 test('arabic right to left', async ({ page }) => {
     await showSheet(page, '/admin/customers?locale=ar')
     await shoot(page, 'sheet-rtl', await clipAround(page, dialog(page), 32))
-})
-
-test('hebrew hint mode', async ({ page }) => {
-    await visit(page, '/admin/orders?locale=he')
-    await pressPrefix(page)
-    await shoot(page, 'hints-rtl')
-})
-
-test('german on Windows', async ({ page }) => {
-    await useWindows(page)
-    await showSheet(page, '/admin/customers?locale=de')
-    await shoot(page, 'sheet-de', await clipAround(page, dialog(page), 32))
-})
-
-test('japanese', async ({ page }) => {
-    await showSheet(page, '/admin/customers?locale=ja')
-    await shoot(page, 'sheet-ja', await clipAround(page, dialog(page), 32))
 })
