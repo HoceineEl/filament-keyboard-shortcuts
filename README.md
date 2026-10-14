@@ -390,6 +390,18 @@ Build the JavaScript with `npm run build` (or `npm run dev`); the compiled `dist
 
 `composer serve` starts the workbench panel at `/admin`. `?locale=ar`, `?big=1` (two-letter chords), `?hints=0` and `?topbar=0` are remembered in the session. `KS_SCREENSHOTS=1 npx playwright test screenshots` regenerates the images in `docs/images`.
 
+## More from Hoceine
+
+Paid packages for Filament 4 and 5 by the same author:
+
+<table>
+<tr>
+<td width="33%" valign="top"><a href="https://filamentcraft.dev?ref=keyboard-shortcuts"><img src="https://raw.githubusercontent.com/HoceineEl/filament-keyboard-shortcuts/main/docs/images/more/filamentcraft.jpg" alt="FilamentCraft"></a><br><b><a href="https://filamentcraft.dev?ref=keyboard-shortcuts">FilamentCraft</a></b><br>A visual website builder inside your Filament panel: drag sections onto a live canvas, edit against a preview, publish.</td>
+<td width="33%" valign="top"><a href="https://media-library.hoceine.com?ref=keyboard-shortcuts"><img src="https://raw.githubusercontent.com/HoceineEl/filament-keyboard-shortcuts/main/docs/images/more/media-library-pro.jpg" alt="Media Library Pro"></a><br><b><a href="https://media-library.hoceine.com?ref=keyboard-shortcuts">Media Library Pro</a></b><br>One shared media library: folders, tags, focal points, chunked uploads, duplicate detection and usage tracking.</td>
+<td width="33%" valign="top"><a href="https://scheduler-pro.hoceine.com?ref=keyboard-shortcuts"><img src="https://raw.githubusercontent.com/HoceineEl/filament-keyboard-shortcuts/main/docs/images/more/scheduler-pro.jpg" alt="Scheduler Pro"></a><br><b><a href="https://scheduler-pro.hoceine.com?ref=keyboard-shortcuts">Scheduler Pro</a></b><br>Resource timelines, Gantt with dependencies, availability-aware booking, recurring events and Kanban boards.</td>
+</tr>
+</table>
+
 ## Contributing
 
 Run the commands above, rebuild `dist/` when you change `resources/js` or `resources/css`, and add tests for behaviour changes. For translations, edit `resources/lang/{locale}/shortcuts.php`; `composer test` checks every locale against English.
