@@ -8,7 +8,7 @@
         "test:e2e": "npm run build && playwright test"
     },
     "devDependencies": {
-        "@happy-dom/global-registrator": "^20.14.5",
+        "@happy-dom/global-registrator": "^20.14.6",
         "@playwright/test": "^1.64.0",
         "esbuild": "^0.25.0"
     }
