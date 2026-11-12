@@ -9,7 +9,7 @@
     },
     "devDependencies": {
         "@happy-dom/global-registrator": "^20.14.5",
-        "@playwright/test": "^1.64.0",
+        "@playwright/test": "^1.65.0",
         "esbuild": "^0.25.0"
     }
 }
